@@ -1,21 +1,52 @@
 
 var ladoBarca = 'derecha';//lado de la barca que tomara valores de izquierda y derecha
-// funcion que detecta cuando se le hace click a la barca
-$('.contenedor').click(function(e){//cuando hace click en el contenedor e.target detecta exactammente a cual objeto se le hace el click
 
-	console.log(e.target);
+// funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
+$('#fragmentoTierraDer').click(function(e){
 
-	if($(e.target).hasClass('canibales')){
+	if(ladoBarca == 'derecha'){
 
-		var imagen = $(e.target);
-		var barca = $('#barca');
+		identObjetoSeleccionado(e); // funcion que se encarga de identificar si selecciono una imagen
+
+	}else{
+
+		alert('Error, seleccione unicamente los personajes del lado en donde se encuentra la barca!');
+
+	}
+
+});
+
+// funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
+$('#fragmentoTierraIzq').click(function(e){
+
+	if(ladoBarca == 'izquierda'){
+
+		identObjetoSeleccionado(e); // funcion que se encarga de identificar si selecciono una imagen
+
+	}else{
+
+		alert('Error, seleccione unicamente los personajes del lado en donde se encuentra la barca!');
+
+	}
+
+	
+
+});
+
+
+function indetObjetoSeleccionado(e){
+
+	let imagen = $(e.target); // obteniendo el objeto seleccionado
+	let barca = null;
+	let contPersonajesBarca = null;
+
+	if(imagen.hasClass('canibales')){
+
+		barca = $('#barca');
 		// identificando cuantas imagenes tiene la barca
-		var contUsuariosBarca = $('#barca').find("img").length;
-		console.log(contUsuariosBarca);
-		console.log(imagen.attr('class'));
-		console.log(imagen.attr('src'));
+		contPersonajesBarca = $('#barca').find("img").length;
 
-		if(contUsuariosBarca < 2){
+		if(contPersonajesBarca < 2){
 
 			imagen.remove();
 			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
@@ -27,15 +58,13 @@ $('.contenedor').click(function(e){//cuando hace click en el contenedor e.target
 		}
 
 	}else if($(e.target).hasClass('misioneros')){
-		var imagen = $(e.target);
-		var barca = $('#barca');
+		
+		imagen = $(e.target); // obteniendo el objeto seleccinado
+		barca = $('#barca');
 		// identificando cuantas imagenes tiene la barca
-		var contUsuariosBarca = $('#barca').find("img").length;
-		console.log(contUsuariosBarca);
-		console.log(imagen.attr('class'));
-		console.log(imagen.attr('src'));
+		contPersonajesBarca = $('#barca').find("img").length;
 
-		if(contUsuariosBarca < 2){
+		if(contPersonajesBarca < 2){
 
 			imagen.remove();//se remueve la imagen de el contenedor
 			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
@@ -47,53 +76,48 @@ $('.contenedor').click(function(e){//cuando hace click en el contenedor e.target
 		}
 	}
 
-});
+}
 
 
 $('#barca').click(function(e){//cuando hace click en el contenedor e.target detecta exactammente a cual objeto se le hace el click
 
-	console.log(e.target);
+	var imagen = $(e.target); // obteniendo el objeto clickeado
+	var contenedorImagen = null; // variable que identifica el contenedor en donde se almacenara la imagen que se elimine de la barca
 
-	if($(e.target).hasClass('canibales')){
+	// verificando si la imagen se trata de un canibal o de un misionero
+	if(imagen.hasClass('canibales')){
 
-		var imagen = $(e.target);
-		var barca = $('#barca');
-		// identificando cuantas imagenes tiene la barca
-		var contUsuariosBarca = $('#barca').find("img").length;
-		console.log(contUsuariosBarca);
-		console.log(imagen.attr('class'));
-		console.log(imagen.attr('src'));
+		// verificando el lado en donde se encuentra la barca para saber si el contenedor en donde se almacenara la imagen del canibal es el de la derecha o el de la izquierda
+		if(ladoBarca == 'derecha'){
 
-		if(contUsuariosBarca < 2){
-
-			imagen.remove();
-			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
-
+			contenedorImagen = $('#contCanibalesDer');
+			
 		}else{
 
-			alert('no hay mas campo en la barca');
+			contenedorImagen = $('#contCanibalesIzq');
 
 		}
 
-	}else if($(e.target).hasClass('misioneros')){
-		var imagen = $(e.target);
-		var barca = $('#barca');
-		// identificando cuantas imagenes tiene la barca
-		var contUsuariosBarca = $('#barca').find("img").length;
-		console.log(contUsuariosBarca);
-		console.log(imagen.attr('class'));
-		console.log(imagen.attr('src'));
+		// eliminando la imagen de la barca y agregandola en el contenedor
+		imagen.remove();
+		contenedorImagen.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+	
 
-		if(contUsuariosBarca < 2){
+	}else if(imagen.hasClass('misioneros')){ // verificando si la imagen es un misionero
+		
+		if(ladoBarca == 'derecha'){ // verificando el lado en donde se encuentra la barca
 
-			imagen.remove();//se remueve la imagen de el contenedor
-			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
-			//se agrega la imagen a la barca
+			contenedorImagen = $('#contMisionerosDer');
+			
 		}else{
 
-			alert('no hay mas campo en la barca');
+			contenedorImagen = $('#contMisionerosIzq');
 
 		}
+
+		// eliminando la imagen de la barca y agregandola en el contenedor
+		imagen.remove();
+		contenedorImagen.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
 	}
 
 });
