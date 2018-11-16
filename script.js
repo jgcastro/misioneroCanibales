@@ -71,5 +71,53 @@ function subir(id){
 		}
 	}
 	
+//funcion para bajar un personaje de la barca
+	function bajar(id){
+		if(ladoBarca == 'derecha'){//verificamos el lado de la barca para saber de que lado se deven hacer los display block
+			if(id[0] == 'M'){//verificamos si intenta bajar a un misionero
+				if($('#MD1').css('display') == 'none'){//verificamos si el misionero de mas a la derecha tiene display none y de ser asi se cambia por display block
+					$('#MD1').css('display','block');
+				}else if($('#MD2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
+					$('#MD2').css('display','block');
+				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
+					$('#MD3').css('display','block');
+				}
+				MD++;//se aumenta uno a los misioneros de la derecha y se resta a los de la barca
+				MBD--;
+			}else{//en este punto sabemos que el usuario lo que intenta bajar es un canibal 
+				if($('#CD1').css('display') == 'none'){//verificamos si el misionero de mas a la derecha tiene display none y de ser asi se cambia por display block
+					$('#CD1').css('display','block');
+				}else if($('#CD2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
+					$('#CD2').css('display','block');
+				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
+					$('#CD3').css('display','block');
+				}
+				CD++;//se aumenta uno a los cannibales de la derecha y se resta a los de la barca
+				CBD--;
+			}
+		}else{
+			if(id[0] == 'M'){//verificamos si intenta bajar a un misionero
+				if($('#MI1').css('display') == 'none'){//verificamos si el misionero de mas a la Izquierda tiene display none y de ser asi se cambia por display block
+					$('#MI1').css('display','block');
+				}else if($('#MI2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
+					$('#MI2').css('display','block');
+				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
+					$('#MI3').css('display','block');
+				}
+				MI++;//se aumenta uno a los misioneros de la derecha y se resta a los de la barca
+				MBI--;
+			}else{//en este punto sabemos que el usuario lo que intenta bajar es un canibal 
+				if($('#CI1').css('display') == 'none'){//verificamos si el misionero de mas a la izquierda tiene display none y de ser asi se cambia por display block
+					$('#CI1').css('display','block');
+				}else if($('#CI2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
+					$('#CI2').css('display','block');
+				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
+					$('#CI3').css('display','block');
+				}
+				CI++;//se aumenta uno a los cannibales de la derecha y se resta a los de la barca
+				CBI--;
+			}
+		}
+	}
 
 }
