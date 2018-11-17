@@ -123,3 +123,32 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 	}
 
 });
+
+
+// funcion que se encarga de mover la barca
+$('#moverBarca').click(function (){
+
+	// identificando cuantas imagenes tiene la barca
+	let contPersonajesBarca = $('#barca').find("img").length;
+
+	// verificando si la barca tiene algun personaje en su interior
+	if(contPersonajesBarca > 0){
+
+		// verificando la posición de la barca
+		if(ladoBarca == DERECHA){
+
+			// codigo para animar la barca a la izquierda
+
+		}else{
+
+			// codigo para animar la barca a la derecha
+
+		}
+
+	}else{
+
+		alert('Por favor, agregue un personaje dentro de la barca para poderla mover!');
+
+	}
+
+})
