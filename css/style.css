@@ -89,15 +89,42 @@ img
 	animation: water 10s linear infinite;
 }
 
-#barcaIzq img
+#barcaIzq
 {
+	width: 220px;
+	height: 100px;
 	position: absolute;
+	bottom: 52%;
 	right: 25%;
+<<<<<<< HEAD
 	top: 35px;
 	z-index: 2;
 }
 
 #barcaIzq.move
+=======
+}
+
+#barcaIzq #imgBarca
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+
+}
+
+#barcaIzq .misioneros, #barcaIzq .canibales
+{
+	
+	float: left;
+	z-index: 0;
+	margin: 0 10px;
+}
+
+
+#barcaIzq img.move
+>>>>>>> 6b4750d005cdf75361ec5d42de482e794a823acb
 {
 	position: absolute;
 	right: 57.8%;
