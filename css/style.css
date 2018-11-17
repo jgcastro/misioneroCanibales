@@ -96,14 +96,9 @@ img
 	position: absolute;
 	bottom: 52%;
 	right: 25%;
-<<<<<<< HEAD
-	top: 35px;
-	z-index: 2;
+
 }
 
-#barcaIzq.move
-=======
-}
 
 #barcaIzq #imgBarca
 {
@@ -123,14 +118,28 @@ img
 }
 
 
-#barcaIzq img.move
->>>>>>> 6b4750d005cdf75361ec5d42de482e794a823acb
+#barcaIzq.moverDerecha
 {
-	position: absolute;
-	right: 57.8%;
-	top: 35px;
+	
+	-webkit-transition:-webkit-transform 1s linear;
+	-webkit-transform:translateX(-200%);
+	
 }
+#barcaIzq.moverizquierda
+{
+	
+	-webkit-transition:-webkit-transform 1s linear;
+	-webkit-transform:translateX(0%);
+	
+}
+@keyframes moverBarcaIzquierda{
+	from{
 
+		}to{
+			position: absolute;
+			right: 57.8%;
+		}
+}
 #creditos
 {
 	width: 100%;

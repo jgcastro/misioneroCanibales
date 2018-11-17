@@ -34,7 +34,20 @@ $('#fragmentoTierraIzq').click(function(e){
 	
 
 });
+//funcion que agrega y quita la clase mover a la barca 
 
+function moverB(){
+
+	if($('.moverDerecha').length != 0){
+		$('#barcaIzq').removeClass('moverDerecha').addClass('moverizquierda');
+		ladoBarca = DERECHA;
+	}else{
+		$('#barcaIzq').removeClass('moverizquierda').addClass('moverDerecha');
+		ladoBarca = IZQUIERDA;
+	}
+	
+	console.log(ladoBarca);
+}
 
 function indetObjetoSeleccionado(e){
 
