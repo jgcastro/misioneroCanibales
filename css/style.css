@@ -94,9 +94,10 @@ img
 	position: absolute;
 	right: 25%;
 	top: 35px;
+	z-index: 2;
 }
 
-#barcaIzq img.move
+#barcaIzq.move
 {
 	position: absolute;
 	right: 57.8%;
@@ -183,4 +184,7 @@ img
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+.canibales{
+	z-index: 1;
 }
