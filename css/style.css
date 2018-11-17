@@ -89,6 +89,16 @@ img
 	animation: water 10s linear infinite;
 }
 
+#barcaIzq
+{
+	width: 200px;
+	height: 100px
+	border: 1px solid black;
+	position: absolute;
+	right: 25%;
+	top: 5px;
+}
+
 #barcaIzq img
 {
 	position: absolute;
@@ -96,11 +106,20 @@ img
 	top: 35px;
 }
 
-#barcaIzq img.move
+#pasajeros
 {
-	position: absolute;
-	right: 57.8%;
-	top: 35px;
+	display: flex;
+	/*position: absolute;*/
+	bottom: 40px;
+	left: 25px;
+	z-index: 0;
+}
+
+#barcaIzq.move
+{
+	/*position: absolute;*/
+	right: 54%;
+	top: 5px;
 }
 
 #creditos
