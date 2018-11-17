@@ -1,123 +1,154 @@
-var MD = 3;//misioneros derecha
-var CD = 3;//canibales derecha
-var MI = 0;//misioneros izquierda
-var CI = 0;//canibales izquierda
-var CBI = 0;//canibales barca izquierda 
-var CBD = 0;//canibales barca derecha
-var MBI = 0;//misioneros barca izquierda 
-var MBD = 0;//misioneros barca derecha
-var ladoBarca = 'derecha';//lado de la barca que tomara valores de izquierda y derecha
 
+var DERECHA = 0;
+var IZQUIERDA = 1;
+var ladoBarca = DERECHA;//lado de la barca que tomara valores de izquierda y derecha
 
-function subir(id){
-	if(ladoBarca == 'derecha'){//verificamos si la varca esta a la derecha
-		if(id[1] == 'D'){//si el id que envian dice que es derecha se continua de lo contrario se alerta al usuario 
-			$('#'+id).css('display','none');//se le aplica el display none a la imagen 
-			if(id[0]=='M'){//verificamos si fue un misionero o un canibal para mostrar en barca 
-				if(MBD+CBD < 2){
-					if(MBD+CBD == 1){
-						$('#MBD2').css('display','block');//en caso de que halla algo en la barca se se hace display
-					}else{									//al misionero 2
-						$('#MBD1').css('display','block');//si no hay nada se hace display al misionero 1
-					}
-					MBD++; //se suma uno a los misioneros en barca de la derecha
-				}else{
-					alert('la barca esta llena');
-				}
-			}else{//si entra aqui es porque esta intentando subir un canibal
-				if(MBD+CBD < 2){
-					if(MBD+CBD == 1){
-						$('#CBD2').css('display','block');//en caso de que halla algo en la barca se se hace display
-					}else{									//al canibal 2
-						$('#CBD1').css('display','block');//si no hay nada se hace display al canibal 1
-					}
-					CBD++; //se suma uno a los misioneros en barca de la derecha
-				}else{
-					alert('la barca esta llena');
-				}
-			}
-		}else{
-			alert('No se puede subir porque la barca esta de el otro lado')
-		}
-		
-	}else{//en este caso la bara esta en la izquierda
-		if(id[1] == 'I'){//si el id que envian dice que es Izquierda se continua de lo contrario se alerta al usuario 
-			$('#'+id).css('display','none');//se le aplica el display none a la imagen 
-			if(id[0]=='M'){//verificamos si fue un misionero o un canibal para mostrar en barca 
-				if(MBI+CBI < 2){//se verifica cuantos tripulantes tiene la varca
-					if(MBI+CBI == 1){
-						$('#MBI2').css('display','block');//en caso de que halla algo en la barca se se hace display
-					}else{									//al misionero 2
-						$('#MBI1').css('display','block');//si no hay nada se hace display al misionero 1
-					}
-					MBI++; //se suma uno a los misioneros en barca de la derecha
-				}else{
-					alert('la barca esta llena');
-				}
-			}else{//si entra aqui es porque esta intentando subir un canibal
-				if(MBI+CBI < 2){
-					if(MBI+CBI == 1){
-						$('#CBI2').css('display','block');//en caso de que halla algo en la barca se se hace display
-					}else{									//al canibal 2
-						$('#CBI1').css('display','block');//si no hay nada se hace display al canibal 1
-					}
-					CBD++; //se suma uno a los misioneros en barca de la derecha
-				}else{
-					alert('la barca esta llena');
-				}
-			}
-		}else{
-			alert('No se puede subir porque la barca esta de el otro lado')
-		}
+// funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
+$('#fragmentoTierraDer').click(function(e){
+
+	if(ladoBarca == DERECHA){
+
+		identObjetoSeleccionado(e); // funcion que se encarga de identificar si selecciono una imagen
+
+	}else{
+
+		alert('Error, seleccione unicamente los personajes del lado en donde se encuentra la barca!');
+
 	}
+
+});
+
+// funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
+$('#fragmentoTierraIzq').click(function(e){
+
+	if(ladoBarca == IZQUIERDA){
+
+		identObjetoSeleccionado(e); // funcion que se encarga de identificar si selecciono una imagen
+
+	}else{
+
+		alert('Error, seleccione unicamente los personajes del lado en donde se encuentra la barca!');
+
+	}
+
 	
-//funcion para bajar un personaje de la barca
-	function bajar(id){
-		if(ladoBarca == 'derecha'){//verificamos el lado de la barca para saber de que lado se deven hacer los display block
-			if(id[0] == 'M'){//verificamos si intenta bajar a un misionero
-				if($('#MD1').css('display') == 'none'){//verificamos si el misionero de mas a la derecha tiene display none y de ser asi se cambia por display block
-					$('#MD1').css('display','block');
-				}else if($('#MD2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
-					$('#MD2').css('display','block');
-				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
-					$('#MD3').css('display','block');
-				}
-				MD++;//se aumenta uno a los misioneros de la derecha y se resta a los de la barca
-				MBD--;
-			}else{//en este punto sabemos que el usuario lo que intenta bajar es un canibal 
-				if($('#CD1').css('display') == 'none'){//verificamos si el misionero de mas a la derecha tiene display none y de ser asi se cambia por display block
-					$('#CD1').css('display','block');
-				}else if($('#CD2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
-					$('#CD2').css('display','block');
-				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
-					$('#CD3').css('display','block');
-				}
-				CD++;//se aumenta uno a los cannibales de la derecha y se resta a los de la barca
-				CBD--;
-			}
+
+});
+
+
+function indetObjetoSeleccionado(e){
+
+	let imagen = $(e.target); // obteniendo el objeto seleccionado
+	let barca = null;
+	let contPersonajesBarca = null;
+
+	if(imagen.hasClass('canibales')){
+
+		barca = $('#barca');
+		// identificando cuantas imagenes tiene la barca
+		contPersonajesBarca = $('#barca').find("img").length;
+
+		if(contPersonajesBarca < 2){
+
+			imagen.remove();
+			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+
 		}else{
-			if(id[0] == 'M'){//verificamos si intenta bajar a un misionero
-				if($('#MI1').css('display') == 'none'){//verificamos si el misionero de mas a la Izquierda tiene display none y de ser asi se cambia por display block
-					$('#MI1').css('display','block');
-				}else if($('#MI2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
-					$('#MI2').css('display','block');
-				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
-					$('#MI3').css('display','block');
-				}
-				MI++;//se aumenta uno a los misioneros de la derecha y se resta a los de la barca
-				MBI--;
-			}else{//en este punto sabemos que el usuario lo que intenta bajar es un canibal 
-				if($('#CI1').css('display') == 'none'){//verificamos si el misionero de mas a la izquierda tiene display none y de ser asi se cambia por display block
-					$('#CI1').css('display','block');
-				}else if($('#CI2').css('display') == 'none'){// se hace la verificacion con las demas imagenes
-					$('#CI2').css('display','block');
-				}else{//asumiendo que el control de el juego se va a llevar a cabo mediante clicks en este punto se asume que el que falta es el de la orilla 
-					$('#CI3').css('display','block');
-				}
-				CI++;//se aumenta uno a los cannibales de la derecha y se resta a los de la barca
-				CBI--;
-			}
+
+			alert('no hay mas campo en la barca');
+
+		}
+
+	}else if($(e.target).hasClass('misioneros')){
+		
+		imagen = $(e.target); // obteniendo el objeto seleccinado
+		barca = $('#barca');
+		// identificando cuantas imagenes tiene la barca
+		contPersonajesBarca = $('#barca').find("img").length;
+
+		if(contPersonajesBarca < 2){
+
+			imagen.remove();//se remueve la imagen de el contenedor
+			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+			//se agrega la imagen a la barca
+		}else{
+
+			alert('no hay mas campo en la barca');
+
 		}
 	}
 
 }
+
+
+$('#barca').click(function(e){//cuando hace click en el contenedor e.target detecta exactammente a cual objeto se le hace el click
+
+	var imagen = $(e.target); // obteniendo el objeto clickeado
+	var contenedorImagen = null; // variable que identifica el contenedor en donde se almacenara la imagen que se elimine de la barca
+
+	// verificando si la imagen se trata de un canibal o de un misionero
+	if(imagen.hasClass('canibales')){
+
+		// verificando el lado en donde se encuentra la barca para saber si el contenedor en donde se almacenara la imagen del canibal es el de la derecha o el de la izquierda
+		if(ladoBarca == DERECHA){
+
+			contenedorImagen = $('#contCanibalesDer');
+			
+		}else{
+
+			contenedorImagen = $('#contCanibalesIzq');
+
+		}
+
+		// eliminando la imagen de la barca y agregandola en el contenedor
+		imagen.remove();
+		contenedorImagen.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+	
+
+	}else if(imagen.hasClass('misioneros')){ // verificando si la imagen es un misionero
+		
+		if(ladoBarca == DERECHA){ // verificando el lado en donde se encuentra la barca
+
+			contenedorImagen = $('#contMisionerosDer');
+			
+		}else{
+
+			contenedorImagen = $('#contMisionerosIzq');
+
+		}
+
+		// eliminando la imagen de la barca y agregandola en el contenedor
+		imagen.remove();
+		contenedorImagen.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+	}
+
+});
+
+
+// funcion que se encarga de mover la barca
+$('#moverBarca').click(function (){
+
+	// identificando cuantas imagenes tiene la barca
+	let contPersonajesBarca = $('#barca').find("img").length;
+
+	// verificando si la barca tiene algun personaje en su interior
+	if(contPersonajesBarca > 0){
+
+		// verificando la posición de la barca
+		if(ladoBarca == DERECHA){
+
+			// codigo para animar la barca a la izquierda
+
+		}else{
+
+			// codigo para animar la barca a la derecha
+
+		}
+
+	}else{
+
+		alert('Por favor, agregue un personaje dentro de la barca para poderla mover!');
+
+	}
+
+})
