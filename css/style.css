@@ -91,35 +91,36 @@ img
 
 #barcaIzq
 {
-	width: 200px;
-	height: 100px
-	border: 1px solid black;
+	width: 220px;
+	height: 100px;
 	position: absolute;
+	bottom: 52%;
 	right: 25%;
-	top: 5px;
 }
 
-#barcaIzq img
+#barcaIzq #imgBarca
 {
 	position: absolute;
-	right: 25%;
-	top: 35px;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+
 }
 
-#pasajeros
+#barcaIzq .misioneros, #barcaIzq .canibales
 {
-	display: flex;
-	/*position: absolute;*/
-	bottom: 40px;
-	left: 25px;
+	
+	float: left;
 	z-index: 0;
+	margin: 0 10px;
 }
 
-#barcaIzq.move
+
+#barcaIzq img.move
 {
-	/*position: absolute;*/
-	right: 54%;
-	top: 5px;
+	position: absolute;
+	right: 57.8%;
+	top: 35px;
 }
 
 #creditos
