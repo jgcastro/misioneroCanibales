@@ -1,10 +1,12 @@
 
-var ladoBarca = 'derecha';//lado de la barca que tomara valores de izquierda y derecha
+var DERECHA = 0;
+var IZQUIERDA = 1;
+var ladoBarca = DERECHA;//lado de la barca que tomara valores de izquierda y derecha
 
 // funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
 $('#fragmentoTierraDer').click(function(e){
 
-	if(ladoBarca == 'derecha'){
+	if(ladoBarca == DERECHA){
 
 		identObjetoSeleccionado(e); // funcion que se encarga de identificar si selecciono una imagen
 
@@ -19,7 +21,7 @@ $('#fragmentoTierraDer').click(function(e){
 // funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
 $('#fragmentoTierraIzq').click(function(e){
 
-	if(ladoBarca == 'izquierda'){
+	if(ladoBarca == IZQUIERDA){
 
 		identObjetoSeleccionado(e); // funcion que se encarga de identificar si selecciono una imagen
 
@@ -88,7 +90,7 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 	if(imagen.hasClass('canibales')){
 
 		// verificando el lado en donde se encuentra la barca para saber si el contenedor en donde se almacenara la imagen del canibal es el de la derecha o el de la izquierda
-		if(ladoBarca == 'derecha'){
+		if(ladoBarca == DERECHA){
 
 			contenedorImagen = $('#contCanibalesDer');
 			
@@ -105,7 +107,7 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 
 	}else if(imagen.hasClass('misioneros')){ // verificando si la imagen es un misionero
 		
-		if(ladoBarca == 'derecha'){ // verificando el lado en donde se encuentra la barca
+		if(ladoBarca == DERECHA){ // verificando el lado en donde se encuentra la barca
 
 			contenedorImagen = $('#contMisionerosDer');
 			
