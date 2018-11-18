@@ -227,3 +227,16 @@ img
 .canibales{
 	z-index: 1;
 }
+
+header {
+	color: white;
+}
+
+header h1 {
+	text-align: center;
+}
+
+#creditos {
+	background-color: #7a7a7a;
+	color: white;
+}
