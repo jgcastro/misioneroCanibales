@@ -100,7 +100,7 @@ $('#fragmentoTierraDer').click(function(e){
 });
 
 // funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
-$('#fagmentoTierraIzq').click(function(e){
+$('#fragmentoTierraIzq').click(function(e){
 
 	if(ladoBarca == IZQUIERDA){
 
