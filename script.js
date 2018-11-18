@@ -1,4 +1,85 @@
 
+// funcion que se encarga de identificar si se le hizo un click a un canibal o un misionero dentro del contenedor
+function identObjetoSeleccionado(e){
+
+	let imagen = $(e.target); // obteniendo el objeto seleccionado
+	let barca = null;
+	let contPersonajesBarca = null;
+
+	if(imagen.hasClass('canibales')){
+
+		barca = $('#barca');
+		// identificando cuantas imagenes tiene la barca de canibales y de misioneros
+		contPersonajesBarca = $('#barca').find(".misioneros").length+$('#barca').find(".canibales").length;
+
+		if(contPersonajesBarca < 2){
+
+			imagen.remove();
+			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+
+		}else{
+
+			alert('no hay mas campo en la barca');
+
+		}
+
+	}else if($(e.target).hasClass('misioneros')){
+		
+		imagen = $(e.target); // obteniendo el objeto seleccinado
+		barca = $('#barca');
+		// identificando cuantas imagenes tiene la barca de canibales y de misioneros
+		contPersonajesBarca = $('#barca').find(".misioneros").length+$('#barca').find(".canibales").length;
+
+		if(contPersonajesBarca < 2){
+
+			imagen.remove();//se remueve la imagen de el contenedor
+			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
+			//se agrega la imagen a la barca
+		}else{
+
+			alert('no hay mas campo en la barca');
+
+		}
+	}
+
+}
+
+// funcion que se encarga de verificar si el jugador a ganado o a perdido o si continua jugando
+function continuarJugando(){
+
+	// variable para identificar cuantos personajes quedan de cada uno
+	let contCanibales = 0;
+	let contMisioneros = 0;
+	
+	// verificando el lugar en donde se encuentra la barca para contar los canibales que esta contiene
+	if(ladoBarca == DERECHA){
+
+		contCanibales = $('#fragmentoTierraDer').find(".canibales").length;
+		contMisioneros = $('#fragmentoTierraDer').find(".misioneros").length;
+	
+
+	}else{
+
+		contCanibales = $('#fragmentoTierraIzq').find(".canibales").length;
+		contMisioneros = $('#fragmentoTierraIzq').find(".misioneros").length;
+	
+	}
+
+	// verificando si hay mas canibales que misioneros del lado de la barca
+	if(contCanibales > contMisioneros){
+
+		return false; // false = no continua jugando
+
+	}else{
+		
+		return true; // true = continua jugando
+
+	}
+
+}
+
+
+
 var DERECHA = 0;
 var IZQUIERDA = 1;
 var ladoBarca = DERECHA;//lado de la barca que tomara valores de izquierda y derecha
@@ -19,7 +100,7 @@ $('#fragmentoTierraDer').click(function(e){
 });
 
 // funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
-$('#fragmentoTierraIzq').click(function(e){
+$('#fagmentoTierraIzq').click(function(e){
 
 	if(ladoBarca == IZQUIERDA){
 
@@ -34,64 +115,6 @@ $('#fragmentoTierraIzq').click(function(e){
 	
 
 });
-//funcion que agrega y quita la clase mover a la barca 
-
-function moverB(){
-
-	if($('.moverDerecha').length != 0){
-		$('#barcaIzq').removeClass('moverDerecha').addClass('moverizquierda');
-		ladoBarca = DERECHA;
-	}else{
-		$('#barcaIzq').removeClass('moverizquierda').addClass('moverDerecha');
-		ladoBarca = IZQUIERDA;
-	}
-	
-	console.log(ladoBarca);
-}
-
-function indetObjetoSeleccionado(e){
-
-	let imagen = $(e.target); // obteniendo el objeto seleccionado
-	let barca = null;
-	let contPersonajesBarca = null;
-
-	if(imagen.hasClass('canibales')){
-
-		barca = $('#barca');
-		// identificando cuantas imagenes tiene la barca
-		contPersonajesBarca = $('#barca').find("img").length;
-
-		if(contPersonajesBarca < 2){
-
-			imagen.remove();
-			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
-
-		}else{
-
-			alert('no hay mas campo en la barca');
-
-		}
-
-	}else if($(e.target).hasClass('misioneros')){
-		
-		imagen = $(e.target); // obteniendo el objeto seleccinado
-		barca = $('#barca');
-		// identificando cuantas imagenes tiene la barca
-		contPersonajesBarca = $('#barca').find("img").length;
-
-		if(contPersonajesBarca < 2){
-
-			imagen.remove();//se remueve la imagen de el contenedor
-			barca.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
-			//se agrega la imagen a la barca
-		}else{
-
-			alert('no hay mas campo en la barca');
-
-		}
-	}
-
-}
 
 
 $('#barca').click(function(e){//cuando hace click en el contenedor e.target detecta exactammente a cual objeto se le hace el click
@@ -141,20 +164,44 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 // funcion que se encarga de mover la barca
 $('#moverBarca').click(function (){
 
-	// identificando cuantas imagenes tiene la barca
-	let contPersonajesBarca = $('#barca').find("img").length;
+	// identificando cuantas imagenes tiene la barca de canibales y de misioneros
+	let	contPersonajesBarca = $('#barca').find(".misioneros").length+$('#barca').find(".canibales").length;
+
+	console.log('click '+contPersonajesBarca);
 
 	// verificando si la barca tiene algun personaje en su interior
 	if(contPersonajesBarca > 0){
 
 		// verificando la posición de la barca
 		if(ladoBarca == DERECHA){
+			
+			if(continuarJugando()){ // funcion que verifica si ha perdido a causa de que hayan mas canibales que misioneros en una de las fracciones de tierra
 
-			// codigo para animar la barca a la izquierda
+				// codigo para animar la barca a la izquierda
+				$('#barca').removeClass('moverDerecha').addClass('moverizquierda');
+				ladoBarca = IZQUIERDA;
+
+			}else{
+
+				// mostrar modal perdedor
+				alert('Ha perdido el juego!');
+
+			}
 
 		}else{
+			
+			if(continuarJugando()){// funcion que verifica si ha perdido a causa de que hayan mas canibales que misioneros en una de las fracciones de tierra
 
-			// codigo para animar la barca a la derecha
+				// codigo para animar la barca a la derecha
+				$('#barca').removeClass('moverizquierda').addClass('moverDerecha');
+				ladoBarca = DERECHA;
+
+			}else{
+
+				// mostrar modal perdedor
+				alert('Ha perdido el juego!');
+
+			}
 
 		}
 

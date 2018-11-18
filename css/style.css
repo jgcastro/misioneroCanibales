@@ -39,6 +39,8 @@ body
 
 #fagmentoTierraIzq img, #fragmentoTierraDer img
 {
+	width: 80px;
+	height: 100px;
 	margin: 5px;
 }
 
@@ -89,7 +91,7 @@ img
 	animation: water 10s linear infinite;
 }
 
-#barcaIzq
+#barca
 {
 	width: 220px;
 	height: 100px;
@@ -100,7 +102,7 @@ img
 }
 
 
-#barcaIzq #imgBarca
+#barca #imgBarca
 {
 	position: absolute;
 	bottom: 0;
@@ -109,27 +111,28 @@ img
 
 }
 
-#barcaIzq .misioneros, #barcaIzq .canibales
+#barca .misioneros, #barca .canibales
 {
-	
+	width: 80px;
+	height: 100px;
 	float: left;
 	z-index: 0;
 	margin: 0 10px;
 }
 
 
-#barcaIzq.moverDerecha
+#barca.moverizquierda
 {
 	
 	-webkit-transition:-webkit-transform 1s linear;
 	-webkit-transform:translateX(-200%);
 	
 }
-#barcaIzq.moverizquierda
+#barca.moverDerecha
 {
 	
-	-webkit-transition:-webkit-transform 1s linear;
-	-webkit-transform:translateX(0%);
+	-webkit-transition: -webkit-transform 1s linear;
+	-webkit-transform: translateX(0%);
 	
 }
 @keyframes moverBarcaIzquierda{
