@@ -61,7 +61,16 @@ function continuarJugando(){
 		contMisionerosIzquierda = $('#fragmentoTierraIzq').find(".misioneros").length;
 	
 	
-	console.log(contCanibalesDerecha);
+
+	//tambien hay que sumar los canibales de la barca
+	if(ladoBarca == DERECHA){
+		contCanibalesDerecha += $('#barca').find(".canibales").length;
+		contMisionerosDerecha += $('#barca').find(".misioneros").length;
+	}else{
+		contCanibalesIzquierda += $('#barca').find(".canibales").length;
+		contMisionerosIzquierda += $('#barca').find(".misioneros").length;
+	}
+		console.log(contCanibalesDerecha);
 	console.log(contMisionerosDerecha);
 	console.log(contCanibalesIzquierda);
 	console.log(contMisionerosIzquierda);
@@ -161,6 +170,9 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 		imagen.remove();
 		contenedorImagen.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
 	}
+	if(gano()){
+		alert('Felicidades Gano el juego.')
+	}
 
 });
 
@@ -216,3 +228,15 @@ $('#moverBarca').click(function (){
 	}
 
 })
+//funcion que comprueba si gano el juego
+function gano(){
+	let contCanibalesIzquierda = 0;
+	let contMisionerosIzquierda = 0;
+		contCanibalesIzquierda = $('#fragmentoTierraIzq').find(".canibales").length;
+		contMisionerosIzquierda = $('#fragmentoTierraIzq').find(".misioneros").length;
+		if(contCanibalesIzquierda + contMisionerosIzquierda == 6){
+			return true;
+		}else{
+			return false;
+		}
+}
