@@ -333,3 +333,18 @@ header h1 {
 	padding: 2px;
 	margin-left: 140px;
 }
+
+li a{
+	color: #fe4104;
+	text-decoration: none;
+	list-style: none;
+}
+
+li a:hover{
+	text-decoration: underline;
+}
+
+span{
+	font-size: 12px;
+	color: #fe4104;
+}
