@@ -188,7 +188,63 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 
 });
 
+$('#barca #imgBarca').click(function (){
 
+	// identificando cuantas imagenes tiene la barca de canibales y de misioneros
+	let	contPersonajesBarca = $('#barca').find(".misioneros").length+$('#barca').find(".canibales").length;
+	let numAzar = 0;
+
+	console.log('click '+contPersonajesBarca);
+
+	// verificando si la barca tiene algun personaje en su interior
+	if(contPersonajesBarca > 0){
+
+		// verificando la posición de la barca
+		if(ladoBarca == DERECHA){
+			
+			console.log('barca a la derecha');
+
+			if(continuarJugando()){ // funcion que verifica si ha perdido a causa de que hayan mas canibales que misioneros en una de las fracciones de tierra
+
+				// codigo para animar la barca a la izquierda
+				$('#barca').removeClass('moverDerecha').addClass('moverizquierda');
+				ladoBarca = IZQUIERDA;
+
+			}else{
+
+				// mostrar modal perdedor
+				alert('Ha perdido el juego!');
+
+
+			}
+
+		}else{
+
+			console.log('barca a la izquierda');
+			
+			if(continuarJugando()){// funcion que verifica si ha perdido a causa de que hayan mas canibales que misioneros en una de las fracciones de tierra
+
+				// codigo para animar la barca a la derecha
+				$('#barca').removeClass('moverizquierda').addClass('moverDerecha');
+				ladoBarca = DERECHA;
+
+			}else{
+
+				// mostrar modal perdedor
+				alert('Ha perdido el juego!');
+
+			}
+
+		}
+
+	}else{
+
+		alert('Por favor, agregue un personaje dentro de la barca para poderla mover!');
+
+	}
+	setTimeout(continuarJugando,1000);
+
+});
 // funcion que se encarga de mover la barca
 $('#moverBarca').click(function (){
 
