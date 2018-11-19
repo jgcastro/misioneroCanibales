@@ -9,6 +9,8 @@ body
 	background-image: url(../img/cloud1.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	Font-family: verdana, sans-serif;
+	font-size: 18px;
 }
 
 #instrucciones
