@@ -167,6 +167,38 @@ img
 	right: 25%;
 	
 }
+
+#contBoton {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#contBoton button{
+	width: 200px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	border: 0px;
+	border-radius: 5px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+#moverBarca{
+	background-color: #fe4104;
+	color: #fdfdfd;
+}
+
+#Iniciar{
+	background-color: #034aab;
+	color: #fdfdfd;
+}
+
+#contBoton button:hover{
+	border: 3px solid white;
+	font-size: 20px;
+}
+
 @keyframes moverBarcaIzquierda{
 	from{
 
