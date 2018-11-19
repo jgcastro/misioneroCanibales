@@ -78,24 +78,22 @@ function continuarJugando(){
 	// verificando si hay mas canibales que misioneros del lado de la barca
 	if(contCanibalesDerecha > contMisionerosDerecha && contMisionerosDerecha > 0 ){
 
-
+		// obteniendo un numero al azar para obtener uno de los modals del perdedor
 		numAzar = Math.round(Math.random())+1;
 
-		console.log('num azar '+numAzar);
-
+		// mostrando el modal y reproduciendo el audio
 		$('#modalPerdedor'+numAzar).css('display', 'block');
-
-
+		$('#modalPerdedor'+numAzar).find('audio')[0].play();
+		
 		return false;
 	}else if(contCanibalesIzquierda > contMisionerosIzquierda && contMisionerosIzquierda > 0){
 		
 
 		numAzar = Math.round(Math.random())+1;
 
-		console.log('num azar '+numAzar);
-
 		$('#modalPerdedor'+numAzar).css('display', 'block');
-
+		$('#modalPerdedor'+numAzar).find('audio')[0].play();
+		
 		return false;
 
 	}else{
@@ -255,6 +253,7 @@ $('.cerrar').click(function(){
 
 	$('.modal').css('display', 'none');
 
+
 })
 
 
@@ -265,6 +264,10 @@ function gano(){
 		contCanibalesIzquierda = $('#fragmentoTierraIzq').find(".canibales").length;
 		contMisionerosIzquierda = $('#fragmentoTierraIzq').find(".misioneros").length;
 		if(contCanibalesIzquierda + contMisionerosIzquierda == 6){
+			
+			// mostrando el modal de ganador
+			$('#modalGanador'+numAzar).css('display', 'block');
+			
 			return true;
 		}else{
 			return false;
