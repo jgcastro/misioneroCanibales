@@ -103,18 +103,11 @@ function continuarJugando(){
 
 }
 
-
+var DERECHA = 0;
+var IZQUIERDA = 1;
+var ladoBarca = DERECHA;//lado de la barca que tomara valores de izquierda y derecha
 // funcion para saber cuando el documento esta listo
-$( document ).ready(function() {
-    
-	var DERECHA = 0;
-	var IZQUIERDA = 1;
-	var ladoBarca = DERECHA;//lado de la barca que tomara valores de izquierda y derecha
 
-	$('#musicaFondo').get[0].play();
-
-
-});
 
 
 // funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
