@@ -25,7 +25,7 @@ body
 	position: relative;
 }
 
-#fagmentoTierraIzq
+#fragmentoTierraIzq
 {
 	width: 25%;
 	height: 160px;
@@ -37,7 +37,7 @@ body
 	background-color: #7D500A
 }
 
-#fagmentoTierraIzq img, #fragmentoTierraDer img
+#fragmentoTierraIzq img, #fragmentoTierraDer img
 {
 	width: 80px;
 	height: 100px;

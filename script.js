@@ -48,27 +48,30 @@ function identObjetoSeleccionado(e){
 function continuarJugando(){
 
 	// variable para identificar cuantos personajes quedan de cada uno
-	let contCanibales = 0;
-	let contMisioneros = 0;
+	let contCanibalesDerecha = 0;
+	let contMisionerosDerecha = 0;
+	let contCanibalesIzquierda = 0;
+	let contMisionerosIzquierda = 0;
 	
 	// verificando el lugar en donde se encuentra la barca para contar los canibales que esta contiene
-	if(ladoBarca == DERECHA){
 
-		contCanibales = $('#fragmentoTierraDer').find(".canibales").length;
-		contMisioneros = $('#fragmentoTierraDer').find(".misioneros").length;
+		contCanibalesDerecha = $('#fragmentoTierraDer').find(".canibales").length;
+		contMisionerosDerecha = $('#fragmentoTierraDer').find(".misioneros").length;
+		contCanibalesIzquierda = $('#fragmentoTierraIzq').find(".canibales").length;
+		contMisionerosIzquierda = $('#fragmentoTierraIzq').find(".misioneros").length;
 	
-
-	}else{
-
-		contCanibales = $('#fragmentoTierraIzq').find(".canibales").length;
-		contMisioneros = $('#fragmentoTierraIzq').find(".misioneros").length;
 	
-	}
-
+	console.log(contCanibalesDerecha);
+	console.log(contMisionerosDerecha);
+	console.log(contCanibalesIzquierda);
+	console.log(contMisionerosIzquierda);
 	// verificando si hay mas canibales que misioneros del lado de la barca
-	if(contCanibales > contMisioneros){
+	if(contCanibalesDerecha > contMisionerosDerecha && contMisionerosDerecha > 0 ){
 
 		return false; // false = no continua jugando
+
+	}else if(contCanibalesIzquierda > contMisionerosIzquierda && contMisionerosIzquierda > 0){
+	
 
 	}else{
 		
@@ -100,7 +103,7 @@ $('#fragmentoTierraDer').click(function(e){
 });
 
 // funcion que detecta cuando se le hace click a uno de los contenedores de fragmento de tierra que contiene las imagenes
-$('#fagmentoTierraIzq').click(function(e){
+$('#fragmentoTierraIzq').click(function(e){
 
 	if(ladoBarca == IZQUIERDA){
 
@@ -133,6 +136,7 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 		}else{
 
 			contenedorImagen = $('#contCanibalesIzq');
+			console.log('escanibal');
 
 		}
 
