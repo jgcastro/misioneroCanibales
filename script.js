@@ -183,9 +183,7 @@ $('#barca').click(function(e){//cuando hace click en el contenedor e.target dete
 		imagen.remove();
 		contenedorImagen.append('<img class='+imagen.attr("class")+' src='+imagen.attr("src")+' alt="">');
 	}
-	if(gano()){
-		alert('Felicidades Gano el juego.')
-	}
+	setTimeout(gano(),1000);
 
 });
 
@@ -266,7 +264,7 @@ function gano(){
 		if(contCanibalesIzquierda + contMisionerosIzquierda == 6){
 			
 			// mostrando el modal de ganador
-			$('#modalGanador'+numAzar).css('display', 'block');
+			$('#modalGanador').css('display', 'block');
 			
 			return true;
 		}else{
