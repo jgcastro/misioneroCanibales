@@ -9,21 +9,41 @@ body
 	background-image: url(../img/cloud1.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	Font-family: verdana, sans-serif;
-	font-size: 18px;
+	font-family: verdana, sans-serif;
+	font-size: 14px;
+}
+
+header{
+	background-color: rgba(0,0,0,0.6);
+}
+
+h1{
+	padding-top: 35px;
+	font-size: 42px;
 }
 
 #instrucciones
 {
+	padding: 15px;
 	width: 100%;
-	height: 150px;
-	background-color: #eee;
+	height: 250px;
+}
+
+#instrucciones ul, h3{
+	margin: 20px;
+}
+
+
+
+ h3, ul, li{
+	font-size: 18px;
+	color: #bada55;
 }
 
 #juego
 {
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	position: relative;
 }
 
@@ -265,6 +285,18 @@ header h1 {
 }
 
 #creditos {
-	background-color: #7a7a7a;
-	color: white;
+	background-color: #262626;
+	color: #bada55;
+	padding: 15px;
+}
+
+#creditos p{
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+#creditos ul li{
+	padding: 2px;
+	margin-left: 140px;
 }
