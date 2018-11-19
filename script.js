@@ -77,14 +77,14 @@ function continuarJugando(){
 	// verificando si hay mas canibales que misioneros del lado de la barca
 	if(contCanibalesDerecha > contMisionerosDerecha && contMisionerosDerecha > 0 ){
 
-		return false; // false = no continua jugando
-
+		alert('Ha perdido el juego!');
+		return false;
 	}else if(contCanibalesIzquierda > contMisionerosIzquierda && contMisionerosIzquierda > 0){
-	
+		alert('Ha perdido el juego!');
+		return false;
 
 	}else{
-		
-		return true; // true = continua jugando
+		return true;
 
 	}
 
@@ -226,6 +226,7 @@ $('#moverBarca').click(function (){
 		alert('Por favor, agregue un personaje dentro de la barca para poderla mover!');
 
 	}
+	setTimeout(continuarJugando,1000);
 
 })
 //funcion que comprueba si gano el juego
@@ -240,3 +241,7 @@ function gano(){
 			return false;
 		}
 }
+
+$('#Iniciar').click(function(){
+	location.reload();
+});
