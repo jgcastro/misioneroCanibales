@@ -93,22 +93,24 @@ img
 
 #barca
 {
-	width: 220px;
+	width: 18.7%;
 	height: 100px;
+	background-color: red;
 	position: absolute;
 	bottom: 52%;
-	left: 75%;
+	right: 25%;
    -webkit-transition: all 1s linear;
    -moz-transition: all 1s linear;
    -o-transition: all 1s linear;
    -ms-transition: all 1s linear;
-   transition: left 1s linear;
+   transition: all 1s linear;
 
 }
 
 
 #barca #imgBarca
 {
+	width: 100%;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -132,14 +134,16 @@ img
 	-webkit-transition:-webkit-transform 1s linear;
 	-webkit-transform:translateX(-200%);
 	*/
-	left: 25%;
+	right: 56.3%; /*actualizando la posicion de la derecha que tenia originalmente*/
 	
 }
 #barca.moverDerecha
 {
-	
+	/*
 	-webkit-transition: -webkit-transform 1s linear;
 	-webkit-transform: translateX(0%);
+	*/
+	right: 25%;
 	
 }
 @keyframes moverBarcaIzquierda{
