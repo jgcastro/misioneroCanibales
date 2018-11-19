@@ -190,6 +190,8 @@ img
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 2; /*necesario para evitar que el gragmento de tierra se vea de primero*/
+	display: none;
 }
 
 
@@ -222,6 +224,20 @@ img
 	margin-top: 10px;
 	color: #1BC81B;
 	font-size: 58px;
+}
+
+.modal .contenedorModal .cerrar
+{
+	color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 20px;
+}
+
+.modal .contenedorModal .cerrar:hover
+{
+	cursor: pointer;
 }
 
 

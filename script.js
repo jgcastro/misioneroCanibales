@@ -52,6 +52,7 @@ function continuarJugando(){
 	let contMisionerosDerecha = 0;
 	let contCanibalesIzquierda = 0;
 	let contMisionerosIzquierda = 0;
+	let numAzar = 0;
 	
 	// verificando el lugar en donde se encuentra la barca para contar los canibales que esta contiene
 
@@ -77,10 +78,24 @@ function continuarJugando(){
 	// verificando si hay mas canibales que misioneros del lado de la barca
 	if(contCanibalesDerecha > contMisionerosDerecha && contMisionerosDerecha > 0 ){
 
-		alert('Ha perdido el juego!');
+
+		numAzar = Math.round(Math.random())+1;
+
+		console.log('num azar '+numAzar);
+
+		$('#modalPerdedor'+numAzar).css('display', 'block');
+
+
 		return false;
 	}else if(contCanibalesIzquierda > contMisionerosIzquierda && contMisionerosIzquierda > 0){
-		alert('Ha perdido el juego!');
+		
+
+		numAzar = Math.round(Math.random())+1;
+
+		console.log('num azar '+numAzar);
+
+		$('#modalPerdedor'+numAzar).css('display', 'block');
+
 		return false;
 
 	}else{
@@ -182,6 +197,7 @@ $('#moverBarca').click(function (){
 
 	// identificando cuantas imagenes tiene la barca de canibales y de misioneros
 	let	contPersonajesBarca = $('#barca').find(".misioneros").length+$('#barca').find(".canibales").length;
+	let numAzar = 0;
 
 	console.log('click '+contPersonajesBarca);
 
@@ -191,6 +207,8 @@ $('#moverBarca').click(function (){
 		// verificando la posición de la barca
 		if(ladoBarca == DERECHA){
 			
+			console.log('barca a la derecha');
+
 			if(continuarJugando()){ // funcion que verifica si ha perdido a causa de que hayan mas canibales que misioneros en una de las fracciones de tierra
 
 				// codigo para animar la barca a la izquierda
@@ -202,9 +220,12 @@ $('#moverBarca').click(function (){
 				// mostrar modal perdedor
 				alert('Ha perdido el juego!');
 
+
 			}
 
 		}else{
+
+			console.log('barca a la izquierda');
 			
 			if(continuarJugando()){// funcion que verifica si ha perdido a causa de que hayan mas canibales que misioneros en una de las fracciones de tierra
 
@@ -228,7 +249,15 @@ $('#moverBarca').click(function (){
 	}
 	setTimeout(continuarJugando,1000);
 
+});
+
+$('.cerrar').click(function(){
+
+	$('.modal').css('display', 'none');
+
 })
+
+
 //funcion que comprueba si gano el juego
 function gano(){
 	let contCanibalesIzquierda = 0;

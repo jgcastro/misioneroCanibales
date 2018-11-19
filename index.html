@@ -8,7 +8,7 @@
 	<script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body>
-		<header>
+	<header>
 		<h1>Caníbales y Misioneros</h1>
 		<br>
 	</header>	
@@ -63,6 +63,49 @@
 			<button id="moverBarca">Mover Barca</button>
 			<button id="Iniciar">Reiniciar juego</button>
 		</div>
+	</section>
+	<section class="modals">
+		<div id="modalPerdedor1" class="modal">
+			<div class="contenedorModal">
+				<span class="cerrar">&times;</span>
+				<h1 class="tituloModal">Has perdido!</h1>
+				<img src="media/nelson.jpg" alt="nelson de los simpson riendo" class="imagenModal">
+				<audio autoplay="autoplay" loop>
+				      <source src="media/ha_ha.mp3" type="audio/mpeg">
+				      El audio no puede ser reproducido en este navegador!
+				</audio>
+
+			</div>
+		</div>
+
+
+		<div  id="modalPerdedor2" class="modal">
+			<div class="contenedorModal">
+				<span class="cerrar">&times;</span>
+				<h1 class="tituloModal">Has perdido!</h1>
+				<img src="media/trump.png" alt="caricatura de trump" class="imagenModal">
+				<audio autoplay>
+				      <source src="media/horse.mp3" type="audio/mpeg">
+				      El audio no puede ser reproducido en este navegador!
+				</audio>
+
+			</div>
+		</div>
+
+
+		<div id="modalGanador" class="modal">
+			<div class="contenedorModal">
+				<span class="cerrar">&times;</span>
+				<h1 class="tituloGanador">Has ganado!</h1>
+				<img src="media/winner.jpg" alt="imagen de una copa de una ganador" class="imagenModal">
+				<audio autoplay>
+				      <source src="media/winner.mp3" type="audio/mpeg">
+				      El audio no puede ser reproducido en este navegador!
+				</audio>
+
+			</div>
+		</div>
+
 	</section>
 	<footer>
 		<div id="creditos">
