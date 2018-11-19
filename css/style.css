@@ -25,19 +25,19 @@ h1{
 
 #instrucciones
 {
-	padding: 15px;
-	width: 100%;
+	padding: 5px;
+	width: 60%;
 	height: 250px;
 }
 
 #instrucciones ul, h3{
-	margin: 20px;
+	margin: 10px;
 }
 
 
 
  h3, ul, li{
-	font-size: 16px;
+	font-size: 14px;
 	color: #bada55;
 }
 
