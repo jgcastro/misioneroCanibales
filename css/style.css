@@ -20,6 +20,7 @@ header{
 h1{
 	padding-top: 35px;
 	font-size: 42px;
+	color: #fdfdfd;
 }
 
 #instrucciones
@@ -36,7 +37,7 @@ h1{
 
 
  h3, ul, li{
-	font-size: 18px;
+	font-size: 16px;
 	color: #bada55;
 }
 
@@ -170,7 +171,7 @@ img
 
 #contBoton {
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 150px;
 }
 
 #contBoton button{
