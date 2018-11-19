@@ -111,7 +111,7 @@ $( document ).ready(function() {
 	var IZQUIERDA = 1;
 	var ladoBarca = DERECHA;//lado de la barca que tomara valores de izquierda y derecha
 
-	$('#musicaFondo').get(0).play();
+	$('#musicaFondo').get[0].play();
 
 
 });

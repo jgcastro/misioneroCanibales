@@ -14,7 +14,7 @@
 	</header>	
 
 	<!---musica de fondo-->
-	<audio id="musicaFondo" src="media/musicaFondo.mp3" loop></audio>
+	
 
 	<div id="instrucciones">
  	<h3>Instrucciones del juego:</h3>
@@ -30,6 +30,8 @@
 	</div>
 
 	<section id="juego">
+		<audio src="media/musicaFondo.mp3" loop="3" autoplay="true">
+				</audio>
 		<div id="fragmentoTierraIzq">
 			<div id="contCanibalesIzq">
 				
@@ -102,6 +104,7 @@
 				<span class="cerrar">&times;</span>
 				<h1 class="tituloGanador">Has ganado!</h1>
 				<img src="media/winner.jpg" alt="imagen de una copa de una ganador" class="imagenModal">
+
 				<audio>
 				      <source src="media/winner.mp3" type="audio/mpeg">
 				      El audio no puede ser reproducido en este navegador!
