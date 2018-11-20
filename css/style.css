@@ -348,3 +348,20 @@ span{
 	font-size: 12px;
 	color: #fe4104;
 }
+
+#instrucciones ul {
+	margin-left:50px;
+}
+
+#creditos {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+
+}
+
+#creditos a {
+	width: 64px;
+	height: 64px;
+	margin-top: 65px;
+}
