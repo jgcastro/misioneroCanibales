@@ -19,7 +19,7 @@ function identObjetoSeleccionado(e){
 
 		}else{
 
-			alert('no hay mas campo en la barca');
+			alert('No hay más campo en la barca');
 
 		}
 
@@ -37,7 +37,7 @@ function identObjetoSeleccionado(e){
 			//se agrega la imagen a la barca
 		}else{
 
-			alert('no hay mas campo en la barca');
+			alert('No hay más campo en la barca');
 
 		}
 	}
@@ -119,7 +119,7 @@ $('#fragmentoTierraDer').click(function(e){
 
 	}else{
 
-		alert('Error, seleccione unicamente los personajes del lado en donde se encuentra la barca!');
+		alert('Error, seleccione únicamente los personajes del lado en donde se encuentra la barca!');
 
 	}
 
@@ -134,7 +134,7 @@ $('#fragmentoTierraIzq').click(function(e){
 
 	}else{
 
-		alert('Error, seleccione unicamente los personajes del lado en donde se encuentra la barca!');
+		alert('Error, seleccione únicamente los personajes del lado en donde se encuentra la barca!');
 
 	}
 
@@ -213,7 +213,7 @@ $('#barca #imgBarca').click(function (){
 			}else{
 
 				// mostrar modal perdedor
-				alert('Ha perdido el juego!');
+				alert('¡Has perdido el juego!');
 
 
 			}
@@ -231,7 +231,7 @@ $('#barca #imgBarca').click(function (){
 			}else{
 
 				// mostrar modal perdedor
-				alert('Ha perdido el juego!');
+				alert('¡Has perdido el juego!');
 
 			}
 
@@ -271,7 +271,7 @@ $('#moverBarca').click(function (){
 			}else{
 
 				// mostrar modal perdedor
-				alert('Ha perdido el juego!');
+				alert('¡Has perdido el juego!');
 
 
 			}
@@ -289,7 +289,7 @@ $('#moverBarca').click(function (){
 			}else{
 
 				// mostrar modal perdedor
-				alert('Ha perdido el juego!');
+				alert('¡Has perdido el juego!');
 
 			}
 

@@ -359,8 +359,13 @@ span{
 
 }
 
-#creditos a {
+#creditos div a img {
 	width: 64px;
 	height: 64px;
 	margin-top: 65px;
+	margin-left: 150px;
+}
+
+#creditos img {
+	background-color: white;
 }
